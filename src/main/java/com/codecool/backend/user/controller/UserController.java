@@ -1,5 +1,6 @@
 package com.codecool.backend.user.controller;
 
+import com.codecool.backend.user.dto.LoginRequest;
 import com.codecool.backend.user.dto.RegisterRequest;
 import com.codecool.backend.user.repository.UserRepository;
 import com.codecool.backend.user.service.UserService;
@@ -7,6 +8,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpSession;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
@@ -21,6 +24,10 @@ public class UserController {
         return userService.register(request);
     }
 
+    @PostMapping("/login")
+    public ResponseEntity<String> loginUser(@RequestBody LoginRequest request, HttpSession session) {
+        return userService.login(request,session);
+    }
 
 
 
