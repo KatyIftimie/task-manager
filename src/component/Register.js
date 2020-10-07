@@ -33,12 +33,21 @@ export default function Register() {
                 <label>Username: </label>
                 <input type="text" name="username"
                     ref={register({ required: true })} placeholder="User name" />
+                {errors.username && errors.username.type === "required" && (
+                    <p>Your must enter a valid Username.</p>
+                )}
                 <label>Email address: </label>
                 <input type="text" name="email"
                     ref={register({ required: true })} placeholder="Email address" />
+                {errors.email && errors.email.type === "required" && (
+                    <p>Your must enter your email address.</p>
+                )}
                 <label>Password: </label>
                 <input type="text" name="password"
                     ref={register({ required: true })} placeholder="Password" />
+                {errors.password && errors.password.type === "required" && (
+                    <p>You must enter a valid password</p>
+                )}
                 <label>Confirm password: </label>
                 <input type="text" name="confirmPassword"
                     ref={register({

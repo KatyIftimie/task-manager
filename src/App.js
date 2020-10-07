@@ -2,16 +2,16 @@ import React from 'react';
 import './App.css';
 import Register from './component/Register';
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
+import Login from './component/Login';
 
 function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" />
+        <Route exact path="/" component={Login} />
         <Route path="/register" component={Register}></Route>
 
       </Switch>
-      {/* <h1>Hi</h1> */}
     </Router>
   );
 }
