@@ -26,8 +26,9 @@ public class TaskController {
          return new ResponseEntity<>("it added task", HttpStatus.OK);
     }
 
-    @GetMapping("/tasks")
-    public List<Task> listTasks(@RequestParam("username") String username, @RequestParam("day") String day) {
-        return taskService.getTasksByDayAndUser(day, username);
+    @GetMapping("/tasks/{username}")
+    public List<Task> listTasks(@PathVariable("username") String username) {
+//        return taskService.getTasksByDayAndUser(day, username);
+        return taskService.getTasksByUser(username);
     }
 }

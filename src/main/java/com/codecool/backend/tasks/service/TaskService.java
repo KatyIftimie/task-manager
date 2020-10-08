@@ -32,4 +32,8 @@ public class TaskService {
     public List<Task> getTasksByDayAndUser(String day, String username) {
         return taskRepository.findAllByDayAndUsername(day, username);
     }
+
+    public List<Task> getTasksByUser(String username) {
+        return taskRepository.findAllByUsername(username);
+    }
 }
