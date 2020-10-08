@@ -10,4 +10,5 @@ import lombok.Setter;
 public class TaskRequest {
     private String name, day, username;
     private int difficulty;
+    private boolean completed;
 }

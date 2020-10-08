@@ -23,4 +23,6 @@ public class Task {
     @NotNull String day;
     @NotNull int difficulty;
     @NotNull String username;
+    @Column(columnDefinition = "boolean default false")
+    @NotNull  boolean  completed ;
 }

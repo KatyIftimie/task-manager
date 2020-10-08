@@ -20,6 +20,7 @@ public class TaskService {
         newTask.setDay(request.getDay());
         newTask.setDifficulty(request.getDifficulty());
         newTask.setUsername(request.getUsername());
+        newTask.setCompleted(request.isCompleted());
         return newTask;
     }
 
