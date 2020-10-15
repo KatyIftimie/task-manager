@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import { useForm } from "react-hook-form"
+import { Link } from "react-router-dom"
 import axios from "axios"
 import StarRatingComponent from 'react-star-rating-component';
 
 export default function AddTask() {
 
     const { register, errors, handleSubmit } = useForm({});
-    const [taskMessage, setTaskMessage] = useState("");
+    // const [taskMessage, setTaskMessage] = useState("");
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [stars, setStars] = useState(0);
 
@@ -26,7 +27,7 @@ export default function AddTask() {
             .then((res) => {
                 if (res.status === 200) {
                     setIsSubmitted(true);
-                    setTaskMessage(res.data);
+                    // setTaskMessage(res.data);
                 }
             })
             .catch((err) => {
@@ -65,6 +66,8 @@ export default function AddTask() {
                 <input type="hidden" name="username" ref={register({ required: true })} value={window.sessionStorage.getItem("login")}></input>
                 <input type="submit" onClick={handleSubmit(onSubmit)} />
             </form>
+            <br></br>
+            <Link to="/tasks">See tasks</Link>
         </div>
     )
 }

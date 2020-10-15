@@ -19,6 +19,7 @@ export default function Login() {
                 setIsLogged(true);
                 setLogInMsj("Success");
                 window.sessionStorage.setItem("login", user.username);
+                console.log(user)
                 console.log(window.sessionStorage.getItem("login"));
                 setTimeout(() => {
                     history.push("/add-task");
