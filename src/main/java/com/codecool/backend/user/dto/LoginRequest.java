@@ -9,4 +9,6 @@ import lombok.Setter;
 @Setter
 public class LoginRequest {
     private String username, password;
+    private long userId;
+
 }

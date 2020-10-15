@@ -23,6 +23,7 @@ public class UserService {
         return userRepository.getByUsername(username);
     }
     public User getUserByEmail(String email) { return userRepository.getByEmail(email);}
+    public User getUserById(long userId) {return userRepository.getByUserId(userId);}
 
     public ResponseEntity<String> register (RegisterRequest request) {
         ResponseEntity<String> validation = validateRegister(request);

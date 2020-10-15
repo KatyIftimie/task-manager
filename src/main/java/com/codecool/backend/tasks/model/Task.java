@@ -1,5 +1,6 @@
 package com.codecool.backend.tasks.model;
 
+import com.codecool.backend.user.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,12 +18,14 @@ import javax.validation.constraints.NotNull;
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long taskId;
 
     @NotNull String name;
     @NotNull String day;
     @NotNull int difficulty;
-    @NotNull String username;
     @Column(columnDefinition = "boolean default false")
     @NotNull  boolean  completed ;
+
+    @ManyToOne(targetEntity = User.class)
+    User user;
 }

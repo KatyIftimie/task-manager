@@ -4,6 +4,8 @@ import com.codecool.backend.tasks.dto.TaskRequest;
 import com.codecool.backend.tasks.model.Task;
 import com.codecool.backend.tasks.repository.TaskRepository;
 import com.codecool.backend.tasks.service.TaskService;
+import com.codecool.backend.user.model.User;
+import com.codecool.backend.user.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,18 +19,25 @@ import java.util.List;
 @RequestMapping("/api/v1")
 public class TaskController {
     private final TaskService taskService;
+    private final UserService userService;
     private final TaskRepository repository;
 
     @PostMapping("/add-task")
     public ResponseEntity<String> addATask(@RequestBody TaskRequest request) {
-        System.out.println(request);
-         taskService.addTask(request);
+        User user = userService.getUserByUsername(request.getUsername());
+         taskService.addTask(request.getName(), request.getDay(), request.getDifficulty(), user ,request.isCompleted());
          return new ResponseEntity<>("it added task", HttpStatus.OK);
     }
 
     @GetMapping("/tasks/{username}")
     public List<Task> listTasks(@PathVariable("username") String username) {
-//        return taskService.getTasksByDayAndUser(day, username);
-        return taskService.getTasksByUser(username);
+        User user = userService.getUserByUsername(username);
+        return taskService.getTasksByUser(user);
+    }
+
+    @PostMapping("/update-task-status")
+    public ResponseEntity<String> updateTask(@RequestBody TaskRequest request) {
+        taskService.updateTask(request.getTaskId());
+        return new ResponseEntity<>("Status changed!", HttpStatus.OK);
     }
 }
