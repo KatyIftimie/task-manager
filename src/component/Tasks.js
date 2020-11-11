@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import DayCard from './DayCard';
+import Navbar from './Navbar';
 
 export default function Tasks() {
     const [tasks, setTasks] = useState([]);
@@ -24,6 +25,7 @@ export default function Tasks() {
 
     return (
         <div>
+            <Navbar />
             <DayCard tasks={tasks} />
         </div>
     )

@@ -26,9 +26,9 @@ export default function TaskCard(props) {
 
 
     return (
-        <div>
+        <div className="task_element">
             {task.map(({ taskId, name, difficulty, completed }) => (
-                <div key={taskId}>
+                <div  key={taskId}>
                     {completed ?
                         <input checked type="checkbox" value={taskId} onChange={e => changeTaskStatus(e)} />
                         :

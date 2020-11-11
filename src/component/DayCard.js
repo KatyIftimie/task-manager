@@ -1,5 +1,6 @@
 import React from 'react'
 import TaskCard from './TaskCard';
+import "../styling/Task.scss";
 
 export default function DayCard(props) {
 
@@ -12,14 +13,16 @@ export default function DayCard(props) {
     }
 
     return (
-        <div>
+        <div className="container">
+            <div className="container__col">
             {days.map((day) => (
-                <div key={day}>
-                    <h2>{day}</h2>
+                <div  key={day}>
+                <h2  >{day}</h2>
                     <TaskCard dayTask={getTask(day)} />
                 </div>
 
             ))}
+            </div>
         </div>
     )
 }

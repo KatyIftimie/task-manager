@@ -1,0 +1,53 @@
+@import "./ResetStyle.scss";
+@import "../App.scss";
+
+form {
+    color: rgb(72, 87, 87);
+    margin: 8rem auto 2rem;
+    size: 90px;
+    max-width: 400px;
+}
+
+form input {
+    box-sizing: border-box;
+    margin: 1rem;
+    font-size: 1.7rem;
+    width: 100%;
+    border: 2px solid rgb(56, 54, 54);
+    border-radius: 16px;
+    background-color: rgb(203, 224, 212);
+    color: snow;
+
+    &:focus {
+        background-color: rgb(90, 88, 84);
+        outline: 0;
+    }
+
+
+}
+
+input[type="submit"] {
+    width: 50%;
+    float: left;
+
+    &.submit-register {
+        width: 100%;
+    }
+}
+
+label {
+    font-size: 2rem;
+    margin: 1rem;
+}
+
+
+a {
+    margin-top: 15rem;
+    margin-left: 4rem;
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+.password-field {
+    -webkit-text-security: disc;
+}

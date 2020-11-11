@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import { useForm } from 'react-hook-form'
+import React, {useState} from 'react'
+import {useForm} from 'react-hook-form'
 import axios from 'axios';
-import { Link, Redirect, useHistory } from 'react-router-dom';
-// import NotFound from "./NotFound";
+import {Link, Redirect, useHistory} from 'react-router-dom';
+import "../styling/Login.scss";
 
 export default function Login() {
     const { register, handleSubmit, errors } = useForm({});
@@ -45,13 +45,13 @@ export default function Login() {
             <form onSubmit={(e) => e.preventDefault}>
                 <label>Username: </label>
                 <input type="text" name="username"
-                    ref={register({ required: true })} placeholder="User name" />
+                    ref={register({ required: true })} />
                 {errors.username && errors.username.type === "required" && (
                     <p>Your must enter a valid Username.</p>
                 )}
                 <label>Password: </label>
-                <input type="text" name="password"
-                    ref={register({ required: true })} placeholder="Password" />
+                <input type="text" className="password-field" name="password"
+                    ref={register({ required: true })}  />
                 {errors.password && errors.password.type === "required" && (
                     <p>You must enter a valid password</p>
                 )}
