@@ -16,14 +16,15 @@ public class TaskService {
     private TaskRepository taskRepository;
 
 
-    public  void addTask(String name, String day, int difficulty, User user, boolean completed) {
+    public Task addTask(String name, String day, int difficulty, User user, boolean completed) {
         Task newTask = new Task();
         newTask.setName(name);
         newTask.setDay(day);
         newTask.setDifficulty(difficulty);
         newTask.setUser(user);
         newTask.setCompleted(completed);
-        taskRepository.save(newTask);
+        return taskRepository.save(newTask);
+
     }
 
 

@@ -25,8 +25,8 @@ public class TaskController {
     @PostMapping("/add-task")
     public ResponseEntity<String> addATask(@RequestBody TaskRequest request) {
         User user = userService.getUserByUsername(request.getUsername());
-         taskService.addTask(request.getName(), request.getDay(), request.getDifficulty(), user ,request.isCompleted());
-         return new ResponseEntity<>("it added task", HttpStatus.OK);
+         Task addedTask=taskService.addTask(request.getName(), request.getDay(), request.getDifficulty(), user ,request.isCompleted());
+         return new ResponseEntity<>(Long.toString(addedTask.getTaskId()), HttpStatus.CREATED);
     }
 
     @GetMapping("/tasks/{username}")

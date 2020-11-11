@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
@@ -29,6 +31,11 @@ public class UserController {
         return userService.login(request,session);
     }
 
+    @GetMapping("/logout")
+    public void logoutUser(HttpSession session, HttpServletResponse response) throws IOException {
+        session.removeAttribute("user");
+        response.sendRedirect("/login");
+    }
 
 
 }
